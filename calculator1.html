@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Hello, world!</title>
+<style>
+    #container{
+        display: flex;
+        justify-content: center;
+        margin-top: 80px;
+    }
+    #calContainer{
+        height: 500px;
+        width: 350px;
+        border: 2px solid black;
+        border-radius: 20px;
+        background-color: rgb(74, 73, 73);
+    }
+    #output{
+        height: 100px;
+        width:300px;
+        border: 1px solid white;
+        border-radius: 10px;
+        margin: 20px;
+        background-color: rgb(74, 73, 73);
+        color: white;
+        font-size: 30px;
+
+    }
+    button{
+        height: 50px;
+        width:50px;
+        border-radius: 50px;
+        margin-left: 15px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        border-style: none;
+        background-color: rgb(242, 236, 236);
+        font-size: 20px;
+    }
+    button:hover{
+        color: black;
+        border:4px solid orange;
+    }
+    #count{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+    }
+    .btnstyle{
+        background-color: orange;
+    }
+    .firstBtns{
+        background-color: darkgray;
+    }
+</style>
+
+  </head>
+
+
+  <body>
+    <div id="container">
+        <div id="calContainer">
+            <input type="text" id="output"></input>
+            <div id="count">
+            <button class="firstBtns" onclick="clearValue()">AC</button>
+            <button class="firstBtns" onclick="escapeValue()"><i class="fa-solid fa-delete-left"></i></button>
+            <button class="firstBtns" onclick="addValue('/')">/</button>
+            <button class="btnstyle" onclick="addValue('*')">*</button>
+            <button onclick="addValue(7)">7</button>
+            <button onclick="addValue(8)">8</button>
+            <button onclick="addValue(9)">9</button>
+            <button class="btnstyle" onclick="addValue('-')">-</button>
+            <button onclick="addValue(6)">6</button>
+            <button onclick="addValue(5)">5</button>
+            <button onclick="addValue(4)">4</button>
+            <button class="btnstyle" onclick="addValue('+')">+</button>
+            <button onclick="addValue(1)">1</button>
+            <button onclick="addValue(2)">2</button>
+            <button onclick="addValue(3)">3</button>
+            <button class="btnstyle" onclick="getResult('=')">=</button>
+            <button onclick="addValue(0)">0</button> 
+            <button onclick="addValue('.')">.</button>
+        </div>
+        </div>
+    </div>
+
+    <script>
+        let output = document.getElementById('output');
+output.value=0;
+
+function addValue(value){
+    output.value += value;
+}
+
+function getResult(){
+    output.value=eval(output.value);
+}
+function clearValue(){
+    output.value="";
+}
+function escapeValue(){
+    output.value=output.value.slice(0,-1)
+}
+    </script>
+    
+  </body>
+</html>
